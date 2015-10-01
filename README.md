@@ -1,7 +1,7 @@
 # csci4200-byteme-project
 Project repository for the Byte Me team in CSCI 4200.
 
-*** App Home Screen xml code***
+*** activity_login_page.xml ***
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
