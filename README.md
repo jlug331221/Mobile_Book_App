@@ -2,6 +2,7 @@
 Project repository for the Byte Me team in CSCI 4200.
 
 *** activity_login_page.xml ***
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
@@ -84,3 +85,74 @@ Project repository for the Byte Me team in CSCI 4200.
     </Button>
 
 </RelativeLayout>
+
+*** END OF activity_login_page.xml ***
+
+*** roundededittext.xml ***
+
+<?xml version="1.0" encoding="utf-8"?>
+<!--  res/drawable/rounded_edittext.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle" android:padding="10dp">
+    <solid android:color="#E0E0E0" />
+    <corners
+        android:bottomRightRadius="15dp"
+        android:bottomLeftRadius="15dp"
+        android:topLeftRadius="15dp"
+        android:topRightRadius="15dp"/>
+</shape>
+
+*** END OF roundededittext.xml ***
+
+*** strings.xml ***
+
+<resources>
+    <string name="app_name">Mobile Book App</string>
+    <string name="loginButton">Login</string>
+    <string name="checkRememberMe">Remember Me?</string>
+    <string name="action_settings">Settings</string>
+</resources>
+
+***  END Of strings.xml ***
+
+*** LoginPageActivity.java ***
+
+package com.example.justin331221.mobilebookapp;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
+public class LoginPageActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login_page);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_login_page, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+}
+
+*** END OF LoginPageActivity.java ***
