@@ -87,7 +87,7 @@ Project repository for the Byte Me team in CSCI 4200.
 
 *** END OF activity_login_screen.xml ***
 
-*** roundededittext.xml ***
+*** roundedittext.xml ***
 
 <?xml version="1.0" encoding="utf-8"?>
 <!--  res/drawable/rounded_edittext.xml -->
@@ -101,7 +101,7 @@ Project repository for the Byte Me team in CSCI 4200.
         android:topRightRadius="15dp"/>
 </shape>
 
-*** END OF roundededittext.xml ***
+*** END OF roundedittext.xml ***
 
 *** strings.xml *** 
 
