@@ -1,7 +1,7 @@
 # csci4200-byteme-project
 Project repository for the Byte Me team in CSCI 4200.
 
-*** activity_login_page.xml ***
+*** activity_login_screen.xml ***
 
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -20,8 +20,7 @@ Project repository for the Byte Me team in CSCI 4200.
         android:layout_marginTop="50dip"
         android:textSize="40sp"
         android:padding="10dip"
-        android:background="#FFD600"
-        android:textColor="#000000"
+        android:textColor="#FFD600"
         android:typeface="serif" >
     </TextView>
 
@@ -86,7 +85,7 @@ Project repository for the Byte Me team in CSCI 4200.
 
 </RelativeLayout>
 
-*** END OF activity_login_page.xml ***
+*** END OF activity_login_screen.xml ***
 
 *** roundededittext.xml ***
 
