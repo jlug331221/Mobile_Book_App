@@ -656,93 +656,112 @@ public class LoginPageActivity extends AppCompatActivity {
 
 *** activity_registration.xml ***
 
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#4A148C"
-    android:fadingEdge="horizontal">
+    android:fadingEdge="horizontal" >
 
     <TextView
-        android:id="@+id/AppText"
-        android:text="@string/app_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:id="@+id/RegistrationText"
+        android:text="@string/registrationText"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="40dip"
-        android:textSize="35sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dip"
+        android:layout_marginLeft="15dip"
+        android:textSize="45sp"
         android:padding="10dip"
         android:textColor="#FFD600"
-        android:typeface="serif" >
+        android:typeface="serif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
     </TextView>
 
     <EditText
-        android:id="@+id/username"
-        android:layout_width="250dip"
+        android:id="@+id/EmailEditText"
+        android:layout_below="@id/RegistrationText"
+        android:layout_marginLeft="15dip"
         android:background="@drawable/roundedittext"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/AppText"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dip"
-        android:hint="Username"
+        android:hint="Email"
         android:textStyle="italic"
-        android:textSize="35sp"
-        android:typeface="serif"
-        android:gravity="center"
-        android:padding="5dip" >
+        android:layout_marginTop="25dip"
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:padding="10dip"
+        android:gravity="center" >
     </EditText>
 
     <EditText
-        android:id="@+id/password"
-        android:layout_width="250dip"
+        android:id="@+id/UsernameEditText"
+        android:layout_below="@id/EmailEditText"
+        android:layout_marginLeft="15dip"
         android:background="@drawable/roundedittext"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/username"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dip"
-        android:hint="Password"
+        android:hint="Username"
         android:textStyle="italic"
-        android:textSize="35sp"
-        android:typeface="serif"
-        android:gravity="center"
-        android:padding="5dip" >
+        android:layout_marginTop="20dip"
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:padding="10dip"
+        android:gravity="center" >
     </EditText>
 
-    <CheckBox
-        android:id="@+id/checkRememberMe"
-        android:layout_below="@id/password"
-        android:text="@string/checkRememberMe"
-        android:textSize="20sp"
-        android:buttonTint="#000000"
-        android:textColor="#ffffff"
-        android:typeface="serif"
+    <EditText
+        android:id="@+id/PasswordEditText"
+        android:layout_below="@id/UsernameEditText"
+        android:layout_marginLeft="15dip"
+        android:background="@drawable/roundedittext"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-    </CheckBox>
-
-    <Button
-        android:id="@+id/loginButton"
-        android:text="@string/loginButton"
-        android:typeface="serif"
-        android:layout_below="@id/checkRememberMe"
-        android:layout_centerHorizontal="true"
+        android:hint="Password"
+        android:textStyle="italic"
         android:layout_marginTop="20dip"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_width="150dip"
-        android:layout_height="wrap_content" >
-    </Button>
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:padding="10dip"
+        android:gravity="center" >
+    </EditText>
+
+    <EditText
+        android:id="@+id/FirstNameEditText"
+        android:layout_below="@id/PasswordEditText"
+        android:layout_marginLeft="15dip"
+        android:background="@drawable/roundedittext"
+        android:layout_centerHorizontal="true"
+        android:hint="First Name"
+        android:textStyle="italic"
+        android:layout_marginTop="20dip"
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:padding="10dip"
+        android:gravity="center" >
+    </EditText>
+
+    <EditText
+        android:id="@+id/LastNameEditText"
+        android:layout_below="@id/FirstNameEditText"
+        android:layout_marginLeft="15dip"
+        android:background="@drawable/roundedittext"
+        android:layout_centerHorizontal="true"
+        android:hint="Last Name"
+        android:textStyle="italic"
+        android:layout_marginTop="20dip"
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:padding="10dip"
+        android:gravity="center" >
+    </EditText>
 
     <Button
         android:id="@+id/registerButton"
         android:text="@string/registerButton"
         android:typeface="serif"
-        android:layout_below="@id/loginButton"
+        android:layout_below="@id/LastNameEditText"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dip"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="35dip"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_width="150dip"
