@@ -654,7 +654,7 @@ public class LoginPageActivity extends AppCompatActivity {
 
 *** END of findbook.xml ***
 
-*** activity_registration.xml ***
+*** activity_registration_screen.xml ***
 
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
@@ -770,4 +770,4 @@ public class LoginPageActivity extends AppCompatActivity {
 
 </RelativeLayout>
 
-*** END of activity_registration.xml ***
+*** END of activity_registration_screen.xml ***
