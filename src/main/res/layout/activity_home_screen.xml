@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#4A148C"
+    android:fadingEdge="horizontal" >
+
+    <TextView
+        android:id="@+id/AppText"
+        android:text="@string/homeWelcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dip"
+        android:textSize="40sp"
+        android:padding="10dip"
+        android:textColor="#FFD600"
+        android:typeface="serif" >
+    </TextView>
+
+    <Button
+        android:id="@+id/viewBooksButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dip"
+        android:text="@string/myBookShelf"
+        android:typeface="serif"
+        android:textSize="20sp"
+        android:textStyle="bold" >
+    </Button>
+
+    <Button
+        android:id="@+id/searchForBooks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dip"
+        android:text="@string/searchForBooks"
+        android:typeface="serif"
+        android:textSize="20sp"
+        android:textStyle="bold" >
+    </Button>
+
+</LinearLayout>
