@@ -2,6 +2,7 @@ package com.example.android.mobilebookapp;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -23,8 +25,13 @@ import java.util.List;
 
 public class LoginScreen extends AppCompatActivity {
 
-    private static Button regButton, loginButton;
-    private static EditText userTextField, passTextField;
+    private String username,password;
+    private Button regButton, loginButton;
+    private EditText userTextField, passTextField;
+    private CheckBox savedCheckBox;
+    private SharedPreferences loginPreferences;
+    private SharedPreferences.Editor loginPrefsEditor;
+    private Boolean saveLogin;
 
     //Progress Dialog
     private ProgressDialog pDialog;
@@ -47,6 +54,16 @@ public class LoginScreen extends AppCompatActivity {
         //setup input fields
         userTextField = (EditText)findViewById(R.id.username);
         passTextField = (EditText)findViewById(R.id.password);
+        savedCheckBox = (CheckBox)findViewById(R.id.checkRememberMe);
+        loginPreferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
+        loginPrefsEditor = loginPreferences.edit();
+
+        saveLogin = loginPreferences.getBoolean("saveLogin", false);
+        if (saveLogin == true) {
+            userTextField.setText(loginPreferences.getString("username", ""));
+            passTextField.setText(loginPreferences.getString("password", ""));
+            savedCheckBox.setChecked(true);
+        }
 
         onClickLoginButtonListener();
         onClickRegisterButtonListener();
@@ -70,9 +87,22 @@ public class LoginScreen extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        username = userTextField.getText().toString();
+                        password = passTextField.getText().toString();
+
+                        if(savedCheckBox.isChecked()){
+                            loginPrefsEditor.putBoolean("saveLogin", true);
+                            loginPrefsEditor.putString("username", username);
+                            loginPrefsEditor.putString("password", password);
+                            loginPrefsEditor.commit();
+                        } else {
+                            loginPrefsEditor.clear();
+                            loginPrefsEditor.commit();
+                            //new AttemptLogin().execute();
+                            //Intent i = new Intent("com.example.android.mobilebookapp.HomeScreen");
+                            //startActivity(i);
+                        }
                         new AttemptLogin().execute();
-                        //Intent i = new Intent("com.example.android.mobilebookapp.HomeScreen");
-                        //startActivity(i);
                     }
                 });
     }

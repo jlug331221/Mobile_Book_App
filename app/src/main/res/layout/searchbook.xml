@@ -43,7 +43,7 @@
 
         <EditText
             android:id="@+id/findTitle"
-            android:layout_width="230dip"
+            android:layout_width="fill_parent"
             android:background="@drawable/roundedittext"
             android:layout_height="wrap_content"
             android:layout_below="@+id/FindBook"
@@ -75,7 +75,7 @@
 
         <EditText
             android:id="@+id/findAuthor"
-            android:layout_width="230dip"
+            android:layout_width="fill_parent"
             android:background="@drawable/roundedittext"
             android:layout_height="wrap_content"
             android:layout_below="@+id/findTitle"
@@ -107,7 +107,7 @@
 
         <EditText
             android:id="@+id/findISBN"
-            android:layout_width="230dip"
+            android:layout_width="fill_parent"
             android:background="@drawable/roundedittext"
             android:layout_height="wrap_content"
             android:layout_below="@+id/findAuthor"
@@ -122,6 +122,8 @@
             android:padding="5dip" >
         </EditText>
 
+        <!-- This will be implemented permitting we have enough time later
+             in the project
         <TextView
             android:id="@+id/BookFormat"
             android:text="@string/book_format"
@@ -217,6 +219,7 @@
             android:gravity="center"
             android:padding="5dip" >
         </EditText>
+        -->
 
         <Button
             android:id="@+id/searchButton"
@@ -228,7 +231,7 @@
             android:textStyle="bold"
             android:layout_width="200dip"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/findEdition"
+            android:layout_below="@+id/findISBN"
             android:padding="10dip"
             />
 
