@@ -18,7 +18,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class SearchBook extends AppCompatActivity{
 
@@ -30,7 +29,7 @@ public class SearchBook extends AppCompatActivity{
 
     JSONParser jsonParser = new JSONParser();
 
-    private static final String LOGIN_URL = "http://137.116.75.162/se_android_app/search.php";
+    private static final String SEARCH_URL = "http://137.116.72.27/se_android_app/search.php";
 
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_MESSAGE = "message";
@@ -40,7 +39,7 @@ public class SearchBook extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.searchbook);
 
-        titleTextField = (EditText)findViewById(R.id.findAuthor);
+        titleTextField = (EditText)findViewById(R.id.findTitle);
         authorTextField = (EditText)findViewById(R.id.findAuthor);
         ISBNTextField = (EditText)findViewById(R.id.findISBN);
 
@@ -81,23 +80,25 @@ public class SearchBook extends AppCompatActivity{
         protected String doInBackground(String... args) {
             int success;
             try {
-
-                List<NameValuePair> params = new ArrayList<NameValuePair>();
+                ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
                 params.add(new BasicNameValuePair("title", title));
                 params.add(new BasicNameValuePair("author", author));
                 params.add(new BasicNameValuePair("ISBN", ISBN));
 
+                System.out.println(params.get(0));
+                System.out.println(params.get(1));
+                System.out.println(params.get(2));
+
                 Log.d("Searching", "Starting");
 
                 JSONObject json = jsonParser.makeHttpRequest(
-                                LOGIN_URL, "POST", params);
+                        SEARCH_URL, "POST", params);
 
                 Log.d("Search Attempt", json.toString());
 
                 success = json.getInt(TAG_SUCCESS);
-
                 if (success == 1) {
-                    Log.d("Search Successful!", json.toString());
+                    Log.d("Search Successful", json.toString());
                     finish();
                     return json.getString(TAG_MESSAGE);
                 }
@@ -122,7 +123,6 @@ public class SearchBook extends AppCompatActivity{
             if (file_url != null){
                 Toast.makeText(SearchBook.this, file_url, Toast.LENGTH_LONG).show();
             }
-
         }
 
     }

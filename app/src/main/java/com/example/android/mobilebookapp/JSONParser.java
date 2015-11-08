@@ -32,7 +32,6 @@ public class JSONParser {
 
     }
 
-
     public JSONObject getJSONFromUrl(final String url) {
 
         // Making HTTP request
@@ -85,20 +84,14 @@ public class JSONParser {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
         }
 
-        // Return the JSON Object.
         return jObj;
-
     }
 
-
-    // function get json from url
-    // by making HTTP POST or GET mehtod
     public JSONObject makeHttpRequest(String url, String method,
                                       List<NameValuePair> params) {
 
         // Making HTTP request
         try {
-
             // check for request method
             if(method == "POST"){
                 // request method is POST
@@ -138,6 +131,7 @@ public class JSONParser {
             String line = null;
             while ((line = reader.readLine()) != null) {
                 sb.append(line + "\n");
+                //Log.d("JSON while loop", sb.toString());
             }
             is.close();
             json = sb.toString();
@@ -145,15 +139,14 @@ public class JSONParser {
             Log.e("Buffer Error", "Error converting result " + e.toString());
         }
 
-        // try parse the string to a JSON object
+        // try to parse the string to a JSON object
         try {
             jObj = new JSONObject(json);
         } catch (JSONException e) {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
         }
 
-        // return JSON String
         return jObj;
-
     }
+
 }

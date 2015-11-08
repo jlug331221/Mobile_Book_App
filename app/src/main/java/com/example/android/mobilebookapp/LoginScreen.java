@@ -40,7 +40,7 @@ public class LoginScreen extends AppCompatActivity {
     JSONParser jsonParser = new JSONParser();
 
     //testing from a real server:
-    private static final String LOGIN_URL = "http://137.116.75.162/se_android_app/login.php";
+    private static final String LOGIN_URL = "http://137.116.72.27/se_android_app/login.php";
 
     //JSON element ids from repsonse of php script:
     private static final String TAG_SUCCESS = "success";
