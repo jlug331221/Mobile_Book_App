@@ -21,6 +21,7 @@
     <string name="find_book">Find A Book</string>
     <string name="myBookShelf">View Books</string>
     <string name="searchForBooks">Search For New Books!</string>
+    <string name="searchBookResults">Book Search Results</string>
     <string name="registerButton">Register</string>
     <string name="registrationText">Registration</string>
 </resources>

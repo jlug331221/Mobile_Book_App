@@ -41,11 +41,11 @@
         </activity>
 
         <activity
-            android:name=".SimpleBookShelfList"
+            android:name=".BookShelf"
             android:label="@string/BooksListActionBarText"
             android:theme="@style/AppTheme" >
             <intent-filter>
-                <action android:name="com.example.android.mobilebookapp.SimpleBookShelfList" />
+                <action android:name="com.example.android.mobilebookapp.BookShelf" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -57,6 +57,17 @@
             android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="com.example.android.mobilebookapp.SearchBook" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".BookSearchResults"
+            android:label="@string/searchBookResults"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="com.example.android.mobilebookapp.BookSearchResults" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

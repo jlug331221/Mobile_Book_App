@@ -2,32 +2,32 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\JLug\AndroidStudioProjects\MobileBookApp\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jar="C:\Users\justin331221\AndroidStudioProjects\MobileBookApp\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="C:\Users\JLug\AndroidStudioProjects\MobileBookApp\app\build\intermediates\pre-dexed\debug\classes-9ca7b08db373276c7450a57c69b4c3c10181b914.jar" />
+        <dex dex="C:\Users\justin331221\AndroidStudioProjects\MobileBookApp\app\build\intermediates\pre-dexed\debug\classes-25cf7d4d0e8035ed9cbf34876087aad80725fd6d.jar" />
     </item>
     <item
-        jar="C:\Users\JLug\AndroidStudioProjects\MobileBookApp\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="C:\Users\JLug\AndroidStudioProjects\MobileBookApp\app\build\intermediates\pre-dexed\debug\classes-2464c6f700ba473bb5e94a641cf38dae1e206a97.jar" />
-    </item>
-    <item
-        jar="C:\Users\JLug\AndroidStudioProjects\MobileBookApp\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="C:\Users\JLug\AndroidStudioProjects\MobileBookApp\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-8e3efca82b285451f56f1d648fe9696b8b1a90f3.jar" />
-    </item>
-    <item
-        jar="D:\AndroidSDK\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
+        jar="C:\Users\justin331221\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
-        <dex dex="C:\Users\JLug\AndroidStudioProjects\MobileBookApp\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-dd3130f13a0eb694fa77f3e3dadcac01edd0b974.jar" />
+        <dex dex="C:\Users\justin331221\AndroidStudioProjects\MobileBookApp\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-aedbc8df837a8644836158eda05f7d233867d618.jar" />
+    </item>
+    <item
+        jar="C:\Users\justin331221\AndroidStudioProjects\MobileBookApp\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="C:\Users\justin331221\AndroidStudioProjects\MobileBookApp\app\build\intermediates\pre-dexed\debug\classes-64b8c9e829f426c47be0d7a5f33c094e0e365e48.jar" />
+    </item>
+    <item
+        jar="C:\Users\justin331221\AndroidStudioProjects\MobileBookApp\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="C:\Users\justin331221\AndroidStudioProjects\MobileBookApp\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-a8b430bfad662948be64416080f5eb5e6f9bd217.jar" />
     </item>
 
 </items>

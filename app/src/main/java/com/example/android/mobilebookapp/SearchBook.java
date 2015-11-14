@@ -1,6 +1,7 @@
 package com.example.android.mobilebookapp;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -60,8 +61,6 @@ public class SearchBook extends AppCompatActivity{
 
     class BookSearch extends AsyncTask<String, String, String> {
 
-        boolean failure = false;
-
         String title  = titleTextField.getText().toString();
         String author = authorTextField.getText().toString();
         String ISBN = ISBNTextField.getText().toString();
@@ -85,21 +84,20 @@ public class SearchBook extends AppCompatActivity{
                 params.add(new BasicNameValuePair("author", author));
                 params.add(new BasicNameValuePair("ISBN", ISBN));
 
-                System.out.println(params.get(0));
-                System.out.println(params.get(1));
-                System.out.println(params.get(2));
-
                 Log.d("Searching", "Starting");
 
                 JSONObject json = jsonParser.makeHttpRequest(
                         SEARCH_URL, "POST", params);
 
-                Log.d("Search Attempt", json.toString());
+                Log.d("Search Attempt: ", json.toString());
 
                 success = json.getInt(TAG_SUCCESS);
                 if (success == 1) {
                     Log.d("Search Successful", json.toString());
-                    finish();
+                    Intent i = new Intent(SearchBook.this, BookSearchResults.class);
+                    i.putExtra("jsonResults", json.toString());
+                    startActivity(i);
+                    //finish();
                     return json.getString(TAG_MESSAGE);
                 }
                 else {

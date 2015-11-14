@@ -131,7 +131,6 @@ public class JSONParser {
             String line = null;
             while ((line = reader.readLine()) != null) {
                 sb.append(line + "\n");
-                //Log.d("JSON while loop", sb.toString());
             }
             is.close();
             json = sb.toString();

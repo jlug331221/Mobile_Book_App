@@ -152,7 +152,8 @@ public class LoginScreen extends AppCompatActivity {
                 if (success == 1) {
                     Log.d("Login Successful!", json.toString());
                     Intent i = new Intent("com.example.android.mobilebookapp.HomeScreen");
-                    finish();
+                    i.putExtra("jsonResults", json.toString());
+                    //finish();
                     startActivity(i);
                     return json.getString(TAG_MESSAGE);
                 } else {
