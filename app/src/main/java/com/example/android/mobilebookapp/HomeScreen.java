@@ -2,7 +2,6 @@ package com.example.android.mobilebookapp;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.nfc.Tag;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -33,6 +32,8 @@ public class HomeScreen extends AppCompatActivity{
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_MESSAGE = "message";
 
+    int success;
+
     private ProgressDialog pDialog;
 
     private static final String TAG_USER_OBJ = "User_Info";
@@ -49,13 +50,13 @@ public class HomeScreen extends AppCompatActivity{
         setContentView(R.layout.activity_home_screen);
 
         try {
-            jsonUserInfo = new JSONObject(getIntent().getStringExtra("jsonResults"));
+            jsonUserInfo = new JSONObject(getIntent().getStringExtra("jsonUserResults"));
             Log.d("HScreen UserInfo", jsonUserInfo.toString());
             jsonArrayUserID = jsonUserInfo.getJSONArray(TAG_USER_OBJ);
-            for(int i = 0; i < jsonArrayUserID.length(); i++) {
-                JSONObject jsonChild = jsonArrayUserID.getJSONObject(i);
-                user_id = jsonChild.getString(TAG_USER_ID);
-            }
+
+            JSONObject jsonChild = jsonArrayUserID.getJSONObject(0);
+            user_id = jsonChild.getString(TAG_USER_ID);
+
             Log.d("UserID = ", user_id);
         }
         catch (JSONException e){
@@ -68,6 +69,12 @@ public class HomeScreen extends AppCompatActivity{
         onClickSearchBooksButtonListener();
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        new populateBookShelf().execute();
+    }
+
     public void onClickViewBooksButtonListener() {
         viewBooksButton = (Button)findViewById(R.id.viewBooksButton);
         viewBooksButton.setOnClickListener(
@@ -76,7 +83,7 @@ public class HomeScreen extends AppCompatActivity{
                     public void onClick(View v) {
                         Intent i;
                         i = new Intent(HomeScreen.this, BookShelf.class);
-                        i.putExtra("jsonResults", jsonBookInfo.toString());
+                        i.putExtra("jsonBookResults", jsonBookInfo.toString());
                         startActivity(i);
                     }
                 });
@@ -90,6 +97,7 @@ public class HomeScreen extends AppCompatActivity{
                     public void onClick(View v) {
                         Intent i;
                         i = new Intent(HomeScreen.this, SearchBook.class);
+                        i.putExtra("jsonUserResults", jsonUserInfo.toString());
                         startActivity(i);
                     }
                 });
@@ -109,22 +117,21 @@ public class HomeScreen extends AppCompatActivity{
 
         @Override
         protected String doInBackground(String... args) {
-            int success;
             try {
                 ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
                 params.add(new BasicNameValuePair("user_id", user_id));
 
                 jsonBookInfo = jsonParser.makeHttpRequest(VIEW_BOOKS_URL, "POST", params);
 
-                Log.d("BShelf Attempt: ", jsonBookInfo.toString());
+                Log.d("HScreen dIB Attempt: ", jsonBookInfo.toString());
 
                 success = jsonBookInfo.getInt(TAG_SUCCESS);
                 if (success == 1) {
-                    Log.d("ViewBooks Successful", jsonBookInfo.toString());
+                    Log.d("HScreen dIB Successful", jsonBookInfo.toString());
                     //finish();
                     return jsonBookInfo.getString(TAG_MESSAGE);
                 } else {
-                    Log.d("Search failed.", jsonBookInfo.getString(TAG_MESSAGE));
+                    Log.d("HScreen dIB failed", jsonBookInfo.getString(TAG_MESSAGE));
                     return jsonBookInfo.getString(TAG_MESSAGE);
                 }
             } catch (JSONException e) {
@@ -134,14 +141,13 @@ public class HomeScreen extends AppCompatActivity{
             return null;
         }
 
-        /**
-         * After completing background task Dismiss the progress dialog
-         **/
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once product deleted
             pDialog.dismiss();
             if (file_url != null) {
-                Toast.makeText(HomeScreen.this, file_url, Toast.LENGTH_LONG).show();
+                if(success == 0) {
+                    Toast.makeText(HomeScreen.this, file_url, Toast.LENGTH_LONG).show();
+                }
             }
         }
     }

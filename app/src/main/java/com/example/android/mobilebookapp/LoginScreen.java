@@ -39,6 +39,8 @@ public class LoginScreen extends AppCompatActivity {
     //JSON Parser class
     JSONParser jsonParser = new JSONParser();
 
+    int success;
+
     //testing from a real server:
     private static final String LOGIN_URL = "http://137.116.72.27/se_android_app/login.php";
 
@@ -130,9 +132,6 @@ public class LoginScreen extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... args) {
-            // TODO Auto-generated method stub
-            // Check for success tag
-            int success;
             try {
                 // Building Parameters
                 List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -152,7 +151,7 @@ public class LoginScreen extends AppCompatActivity {
                 if (success == 1) {
                     Log.d("Login Successful!", json.toString());
                     Intent i = new Intent("com.example.android.mobilebookapp.HomeScreen");
-                    i.putExtra("jsonResults", json.toString());
+                    i.putExtra("jsonUserResults", json.toString());
                     //finish();
                     startActivity(i);
                     return json.getString(TAG_MESSAGE);
@@ -174,7 +173,9 @@ public class LoginScreen extends AppCompatActivity {
             // dismiss the dialog once product deleted
             pDialog.dismiss();
             if (file_url != null) {
-                Toast.makeText(LoginScreen.this, file_url, Toast.LENGTH_LONG).show();
+                if(success == 0) {
+                    Toast.makeText(LoginScreen.this, file_url, Toast.LENGTH_LONG).show();
+                }
             }
         }
     }

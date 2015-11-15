@@ -1,8 +1,5 @@
 package com.example.android.mobilebookapp;
 
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -11,10 +8,7 @@ import android.view.MenuItem;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -50,7 +44,7 @@ public class BookShelf extends AppCompatActivity{
 
         JSONObject jsonBookInfo = new JSONObject();
         try {
-            jsonBookInfo = new JSONObject(getIntent().getStringExtra("jsonResults"));
+            jsonBookInfo = new JSONObject(getIntent().getStringExtra("jsonBookResults"));
             Log.d("BShelf BookInfo ", jsonBookInfo.toString());
         }
         catch (JSONException e){
@@ -79,7 +73,7 @@ public class BookShelf extends AppCompatActivity{
                 list = (ListView) findViewById(R.id.listview_book);
 
                 ListAdapter adapter = new SimpleAdapter(BookShelf.this,
-                        bookList, R.layout.list_item_book,
+                        bookList, R.layout.list_item_bookshelf,
                         new String[]{TAG_ISBN, TAG_TITLE, TAG_AUTHOR, TAG_YEAR},
                         new int[]{R.id.ISBN, R.id.Title, R.id.Author, R.id.PubYear});
 

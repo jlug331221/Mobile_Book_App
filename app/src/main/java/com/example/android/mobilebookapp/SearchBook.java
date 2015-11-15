@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -35,6 +36,11 @@ public class SearchBook extends AppCompatActivity{
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_MESSAGE = "message";
 
+    int success;
+
+    JSONObject jsonUserInfo = new JSONObject();
+    JSONArray jsonArrayUserID = new JSONArray();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +49,14 @@ public class SearchBook extends AppCompatActivity{
         titleTextField = (EditText)findViewById(R.id.findTitle);
         authorTextField = (EditText)findViewById(R.id.findAuthor);
         ISBNTextField = (EditText)findViewById(R.id.findISBN);
+
+        try {
+            jsonUserInfo = new JSONObject(getIntent().getStringExtra("jsonUserResults"));
+            Log.d("SBook User Info", jsonUserInfo.toString());
+        }
+        catch (JSONException e){
+            e.printStackTrace();
+        }
 
         onClickSearchButtonListener();
 
@@ -77,7 +91,6 @@ public class SearchBook extends AppCompatActivity{
 
         @Override
         protected String doInBackground(String... args) {
-            int success;
             try {
                 ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
                 params.add(new BasicNameValuePair("title", title));
@@ -92,16 +105,16 @@ public class SearchBook extends AppCompatActivity{
                 Log.d("Search Attempt: ", json.toString());
 
                 success = json.getInt(TAG_SUCCESS);
-                if (success == 1) {
-                    Log.d("Search Successful", json.toString());
+                if(success == 1) {
+                    Log.d("Search Successful ", json.toString());
                     Intent i = new Intent(SearchBook.this, BookSearchResults.class);
-                    i.putExtra("jsonResults", json.toString());
+                    i.putExtra("jsonBookResults", json.toString());
+                    i.putExtra("jsonUserResults", jsonUserInfo.toString());
                     startActivity(i);
-                    //finish();
                     return json.getString(TAG_MESSAGE);
                 }
                 else {
-                    Log.d("Search failed.", json.getString(TAG_MESSAGE));
+                    Log.d("Search failed ", json.getString(TAG_MESSAGE));
                     return json.getString(TAG_MESSAGE);
                 }
             }
@@ -119,7 +132,9 @@ public class SearchBook extends AppCompatActivity{
             // dismiss the dialog once product deleted
             pDialog.dismiss();
             if (file_url != null){
-                Toast.makeText(SearchBook.this, file_url, Toast.LENGTH_LONG).show();
+                if(success == 0) {
+                    Toast.makeText(SearchBook.this, file_url, Toast.LENGTH_LONG).show();
+                }
             }
         }
 
