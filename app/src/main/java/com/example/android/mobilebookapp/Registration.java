@@ -115,8 +115,7 @@ public class Registration extends AppCompatActivity{
                 success = json.getInt(TAG_SUCCESS);
                 if (success == 1) {
                     Log.d("User Created!", json.toString());
-                    Intent i = new Intent("com.example.android.mobilebookapp.HomeScreen");
-                    finish();
+                    Intent i = new Intent(Registration.this, LoginScreen.class);
                     startActivity(i);
                     return json.getString(TAG_MESSAGE);
                 }else{

@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Mobile Book App</string>
+    <string name="icon_app_name">Mobile\nBook App</string>
+
     <string name="registerActionBarText">Register to get Started</string>
     <string name="homeActionBarText">Welcome to your Bookshelf!</string>
     <string name="searchBookDB">Search our Book Database</string>
