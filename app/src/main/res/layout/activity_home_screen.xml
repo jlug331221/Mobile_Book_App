@@ -40,11 +40,35 @@
         </Button>
 
         <Button
-            android:id="@+id/searchForBooks"
+            android:id="@+id/viewFavoritesButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="50dip"
+            android:layout_marginTop="25dip"
+            android:text="@string/viewFavorites"
+            android:typeface="serif"
+            android:textSize="20sp"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:id="@+id/viewBooksReadButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dip"
+            android:text="@string/viewBooksRead"
+            android:typeface="serif"
+            android:textSize="20sp"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:id="@+id/searchForBooksButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dip"
             android:text="@string/searchForBooks"
             android:typeface="serif"
             android:textSize="20sp"

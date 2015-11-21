@@ -24,6 +24,9 @@ public class HomeScreen extends AppCompatActivity{
 
     private static Button viewBooksButton;
     private static Button searchForBooksButton;
+    private static Button viewFavoritesButton;
+    private static Button viewBooksReadButton;
+
     JSONParser jsonParser = new JSONParser();
 
     private static final String VIEW_BOOKS_URL =
@@ -67,6 +70,8 @@ public class HomeScreen extends AppCompatActivity{
 
         onClickViewBooksButtonListener();
         onClickSearchBooksButtonListener();
+        onClickViewFavoritesButtonListener();
+        onClickViewBooksReadButtonListener();
     }
 
     @Override
@@ -84,13 +89,14 @@ public class HomeScreen extends AppCompatActivity{
                         Intent i;
                         i = new Intent(HomeScreen.this, BookShelf.class);
                         i.putExtra("jsonBookResults", jsonBookInfo.toString());
+                        i.putExtra("jsonUserResults", jsonUserInfo.toString());
                         startActivity(i);
                     }
                 });
     }
 
     public void onClickSearchBooksButtonListener() {
-        searchForBooksButton = (Button)findViewById(R.id.searchForBooks);
+        searchForBooksButton = (Button)findViewById(R.id.searchForBooksButton);
         searchForBooksButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -103,16 +109,44 @@ public class HomeScreen extends AppCompatActivity{
                 });
     }
 
+    public void onClickViewFavoritesButtonListener() {
+        viewFavoritesButton = (Button)findViewById(R.id.viewFavoritesButton);
+        viewFavoritesButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i;
+                        i = new Intent(HomeScreen.this, Favorites.class);
+                        i.putExtra("jsonUserResults", jsonUserInfo.toString());
+                        startActivity(i);
+                    }
+                });
+    }
+
+    public void onClickViewBooksReadButtonListener() {
+        viewBooksReadButton = (Button)findViewById(R.id.viewBooksReadButton);
+        viewBooksReadButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i;
+                        i = new Intent(HomeScreen.this, BooksRead.class);
+                        i.putExtra("jsonUserResults", jsonUserInfo.toString());
+                        startActivity(i);
+                    }
+                });
+    }
+
     class populateBookShelf extends AsyncTask<String, String, String> {
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(HomeScreen.this);
-            pDialog.setMessage("Populating Book Shelf...");
+            /*pDialog.setMessage("Populating Book Shelf...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(true);
-            pDialog.show();
+            pDialog.show();*/
         }
 
         @Override
@@ -144,13 +178,14 @@ public class HomeScreen extends AppCompatActivity{
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once product deleted
             pDialog.dismiss();
-            if (file_url != null) {
+            /*if (file_url != null) {
                 if(success == 0) {
                     Toast.makeText(HomeScreen.this, file_url, Toast.LENGTH_LONG).show();
                 }
-            }
+            }*/
         }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

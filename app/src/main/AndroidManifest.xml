@@ -73,6 +73,28 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".Favorites"
+            android:label="@string/favoritesPage"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="com.example.android.mobilebookapp.Favorites" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".BooksRead"
+            android:label="@string/booksReadPage"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="com.example.android.mobilebookapp.BooksRead" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

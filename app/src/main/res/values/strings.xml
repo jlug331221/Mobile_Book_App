@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Mobile Book App</string>
     <string name="icon_app_name">Mobile\nBook App</string>
-
     <string name="registerActionBarText">Register to get Started</string>
     <string name="homeActionBarText">Welcome to your Bookshelf!</string>
     <string name="searchBookDB">Search our Book Database</string>
@@ -21,9 +20,13 @@
     <string name="book_status">Status</string>
     <string name="searchButton">Search</string>
     <string name="find_book">Find A Book</string>
-    <string name="myBookShelf">View Books</string>
+    <string name="myBookShelf">View Bookshelf</string>
     <string name="searchForBooks">Search For New Books!</string>
     <string name="searchBookResults">Book Search Results</string>
     <string name="registerButton">Register</string>
     <string name="registrationText">Registration</string>
+    <string name="viewFavorites">View Favorites</string>
+    <string name="favoritesPage">Your Favorite Books</string>
+    <string name="viewBooksRead">View Books Read</string>
+    <string name="booksReadPage">Books You Have Read</string>
 </resources>
